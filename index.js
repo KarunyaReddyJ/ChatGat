@@ -4,15 +4,15 @@ const port = process.env.PORT || 3000;
 const path = require('path');
 const app = express();
 
-app.use(express.static(path.join('./public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const expressServer = app.listen(port, () => {
     console.log('Server listening on port', port);
 });
 
 app.get('*', (req, res) => {
-    res.sendFile('/index.html');
-});
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
 
 const io = new Server(expressServer, {
     cors: {
