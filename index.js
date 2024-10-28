@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
 
 const io = new Server(expressServer, {
     cors: {
-        origin: process.env.NODE_ENV === 'production' ? '*' : ["http://localhost:5173"],
+        origin: process.env.NODE_ENV === 'production' ? '*' : ["https://chat-gat.vercel.app/"],
     }
 });
 
